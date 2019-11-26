@@ -42,12 +42,16 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #3C3C3C"></div>
+<div class="overlay"></div>
+<!-- <div class="overlay" style="background: #4d4d4d"></div> -->
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="/" class="profilepic">
+			
+				<a href="/" class="profilepic_rotate"><img src="/assets/hea.jpg" class="js-avatar"></a>
+				
+		<!-- <a href="/" class="profilepic">
 			<img src="/assets/hea.jpg" class="js-avatar">
-		</a>
+		</a> -->
 		<hgroup>
 		  <h1 class="header-author"><a href="/">小小瑞</a></h1>
 		</hgroup>
@@ -92,12 +96,32 @@
 		</nav>
 	</header>		
 </div>
+<script >
+	window.onload=function(){
+	var bglist = [];
+		bglist[0] = "http://ww1.sinaimg.cn/large/007YJlh3ly1g9b83xtdwvj30k0168n0u.jpg";
+		bglist[1] = "http://ww1.sinaimg.cn/large/007YJlh3ly1g9b888knbtj30qo0gomyl.jpg";
+		bglist[2] = "http://ww1.sinaimg.cn/large/007YJlh3ly1g9b88walahj30p81hawgx.jpg";
+		// bglist[3] = "图片4地址";
+		// bglist[4] = "图片5地址";
+		// bglist[5] = "图片6地址";
+	var i = 0;
+	var bkg=document.getElementsByClassName("left-col")[0]; 
+	bkg.style.background="url(http://ww1.sinaimg.cn/large/007YJlh3ly1g9b83xtdwvj30k0168n0u.jpg)";  
+			function time(){
+				i<5?i++:i=0; 
+				//这里控制条件，5是图片数量减一
+				bkg.style.background="url("+bglist[i]+")"; 
+			}
+			setInterval(time,3000);
+	}
+</script>
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #3C3C3C"></div>
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -390,7 +414,7 @@
 			   本文总阅读量：<span id="busuanzi_value_page_pv"></span>次
 		   </span>
 		  </div>
-		<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+		<!-- <span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
     </div>
   </div>
 </footer>
