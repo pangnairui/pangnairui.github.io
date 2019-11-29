@@ -6,14 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: a, | A little red</title>
+  <title>上传项目到git | A little red</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="A little red">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;a&#x2F;index.html">
+  <meta name="description" content="上传项目到git对于git一直理解的不是很到位，每次上传项目都会碰到一些问题，研究了很久，觉得不能每次都无法解决，因此来记录一下完整的上传项目到git的步骤，废话不多说，开始吧！！！ 首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！">
+<meta name="keywords" content="git,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="上传项目到git">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF&#x2F;index.html">
 <meta property="og:site_name" content="A little red">
+<meta property="og:description" content="上传项目到git对于git一直理解的不是很到位，每次上传项目都会碰到一些问题，研究了很久，觉得不能每次都无法解决，因此来记录一下完整的上传项目到git的步骤，废话不多说，开始吧！！！ 首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928194823576.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928195141332.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928195311197.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928195658527.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202113538.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202055400.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928201945559.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202141947.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202211629.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202231157.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202333433.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202346936.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202438869.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202506158.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202546590.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202602885.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191008155632557.png">
+<meta property="og:updated_time" content="2019-11-29T03:59:06.407Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928194823576.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="A little red" type="application/atom+xml">
   
@@ -174,48 +196,122 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-git上传到仓库及分支" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/25/postname/" class="archive-article-date">
-  	<time datetime="2019-11-25T03:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/25/postname/">一颗糖的博客</a>
+    <h1 class="article-title" itemprop="name">
+      上传项目到git
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/25/git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF/" class="archive-article-date">
+  	<time datetime="2019-11-25T03:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="上传项目到git"><a href="#上传项目到git" class="headerlink" title="上传项目到git"></a>上传项目到git</h2><p>对于git一直理解的不是很到位，每次上传项目都会碰到一些问题，研究了很久，觉得不能每次都无法解决，因此来记录一下完整的上传项目到git的步骤，废话不多说，开始吧！！！</p>
+<h3 id="首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！"><a href="#首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！" class="headerlink" title="首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！"></a>首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！</h3><a id="more"></a>
+
+<h4 id="当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下："><a href="#当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下：" class="headerlink" title="当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下："></a>当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下：</h4><p>1、在github首页点击左上角的+号，选择第一个New repository</p>
+<p><img src="https://img-blog.csdnimg.cn/20190928194823576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="点击第一个"></p>
+<p>2、test为创建的仓库名称，点击创建</p>
+<p><img src="https://img-blog.csdnimg.cn/20190928195141332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>3、这样仓库就创建好啦，点击右侧的clone会有一个地址，记住这个地址，后面会频繁的用到哦</p>
+<p><img src="https://img-blog.csdnimg.cn/20190928195311197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>4、接下来就去你本地的项目中吧，在你的安装了git的前提下，在你的项目中点击右键，会有Git Bash Here的选项，点击打开，会弹出下面这个框</p>
+<p><img src="https://img-blog.csdnimg.cn/20190928195658527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="重点来啦"><a href="#重点来啦" class="headerlink" title="重点来啦"></a>重点来啦</h4><p><strong>将项目上传到仓库主分支，也就是master中，步骤入如下：</strong><br>1、<strong>git init 初始化，你的对应文件夹中会有个.git的隐藏文件出现</strong></p>
+<ul>
+<li>（如果之前没有输入过用户名和密码，可能会需要这一步： 1、 <code>git config --global user.email</code><br>“输入你的注册git的邮箱” 2、 <code>git config --global user.name “输入你的git的用户名”</code>）</li>
+</ul>
+<p>2、<strong><code>git add .</code> 上传所有文件（注意：add后面空格一个.）</strong><br>3、<strong><code>git commit -m “对你项目的说明”</code></strong><br>4、<strong><code>git push -u origin master</code> 将项目上传到git中，需要输入你的git用户名和密码</strong></p>
+<h5 id="此上，就结束啦！！！"><a href="#此上，就结束啦！！！" class="headerlink" title="此上，就结束啦！！！"></a>此上，就结束啦！！！</h5><p><strong>将项目传到git的分支上，不是master，是你需要自己创建分支，步骤：</strong><br>1、<code>git init</code> 初始化，出现.git文件夹</p>
+<ol start="2">
+<li><code>git config --global user.email “you@example.com”</code></li>
+<li>g<code>it config --global user.name “Your Name”</code> （ 这两步同上述步骤，不是必须要写）</li>
+<li><code>git add .</code></li>
+<li><code>git commit -m “说明”</code></li>
+<li><code>git remote add origin git地址</code>（这个地址就是前面复制的地址）</li>
+<li><code>git pull origin master</code></li>
+<li><code>git checkout -b 分支名</code> （你自己创建的分支名）</li>
+<li><code>git push origin 分支名</code></li>
+<li><code>git status</code> 看到本地运行在新分支上</li>
+<li><code>git checkout master</code> 切换到主分支</li>
+<li><code>git merge origin/你的分支名</code></li>
+<li><code>git push</code></li>
+</ol>
+<p><strong>上述步骤是仓库中没有你的分支时的步骤，接下来是你的分支已经存在，现在你又对你的项目做了修改，要再传到分支上，更新你的分支，步骤如下：</strong><br>1.<code>git clone</code> 地址（前面复制的地址）</p>
+<p><img src="https://img-blog.csdnimg.cn/20190928202113538.png" alt="在这里插入图片描述"></p>
+<p>2.<code>cd 克隆的文件夹下</code> （上述操作后，你的项目中会出现一个文件夹，是你分支中的项目，用cd切换到这个文件夹下）</p>
+<p><img src="https://img-blog.csdnimg.cn/20190928202055400.png" alt="在这里插入图片描述"></p>
+<p>3.将你现在需要上传的项目的文件夹复制，然后粘贴到克隆的这个文件夹下，要替换原来的文件，如下：将选中的文件夹复制到 5flux 中</p>
+<p><img src="https://img-blog.csdnimg.cn/20190928201945559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>4.<code>git branch -a</code> 查看所有分支<img src="https://img-blog.csdnimg.cn/20190928202141947.png" alt="在这里插入图片描述"></p>
+<p>5.<code>git checkout -b 本地分支名 origin/git中的分支名</code><br>若此步骤报错：<img src="https://img-blog.csdnimg.cn/20190928202211629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>则执行<br><code>git add .</code><br><code>git commit -m “说明”</code><img src="https://img-blog.csdnimg.cn/20190928202231157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>6.上述两步执行完毕后，再执行5<img src="https://img-blog.csdnimg.cn/20190928202333433.png" alt="在这里插入图片描述"></p>
+<p>7.<code>git pull</code><img src="https://img-blog.csdnimg.cn/20190928202346936.png" alt="在这里插入图片描述"></p>
+<p>若报错<br><code>Already up-to-date</code><br>则执行<img src="https://img-blog.csdnimg.cn/20190928202438869.png" alt="在这里插入图片描述"></p>
+<p>8.执行<code>git push origin 分支名</code><br>成功则会需要输入用户名和密码<img src="https://img-blog.csdnimg.cn/20190928202506158.png" alt="在这里插入图片描述"></p>
+<p>若报错<code>Already up-to-date</code>，则执行<img src="https://img-blog.csdnimg.cn/20190928202546590.png" alt="在这里插入图片描述"></p>
+<p>9.继续执行8<img src="https://img-blog.csdnimg.cn/20190928202602885.png" alt="在这里插入图片描述"></p>
+<p>更新分支成功！！！</p>
+<p>如果报错如下，则执行<br><code>git push -u origin 分支名 -f</code><img src="https://img-blog.csdnimg.cn/20191008155632557.png" alt="在这里插入图片描述"></p>
+<h3 id="更新master的步骤："><a href="#更新master的步骤：" class="headerlink" title="更新master的步骤："></a>更新master的步骤：</h3><p>123步骤如上述更新分支的步骤一致，<br>4、<code>git add .</code><br>5、<code>git commit -m “说明”</code><br>6、<code>git push -u origin master</code> （这一步需要输入用户名和密码）</p>
+<p><strong>这就ok了！！！！</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WeChat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">a,</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">git,</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -228,17 +324,126 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=	http://yoursite.com/2019/11/25/git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/11/25/postname/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          一颗糖的博客
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/11/25/WebSocket%20%E6%98%AF%E4%BB%80%E4%B9%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebSocket 是什么</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#上传项目到git"><span class="toc-number">1.</span> <span class="toc-text">上传项目到git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！"><span class="toc-number">1.1.</span> <span class="toc-text">首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下："><span class="toc-number">1.1.1.</span> <span class="toc-text">当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重点来啦"><span class="toc-number">1.1.2.</span> <span class="toc-text">重点来啦</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#此上，就结束啦！！！"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">此上，就结束啦！！！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新master的步骤："><span class="toc-number">1.2.</span> <span class="toc-text">更新master的步骤：</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -272,9 +477,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
