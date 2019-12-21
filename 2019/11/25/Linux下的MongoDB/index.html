@@ -6,36 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>上传项目到git | A little red</title>
+  <title>Linux下的MongoDB | A little red</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上传项目到git对于git一直理解的不是很到位，每次上传项目都会碰到一些问题，研究了很久，觉得不能每次都无法解决，因此来记录一下完整的上传项目到git的步骤，废话不多说，开始吧！！！ 首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！">
-<meta name="keywords" content="git,">
+  <meta name="description" content="linux下的mongodb数据库原生操作mongodb，是一种结构最像mysql的nosql mysql中的数据库，mongodb中也有，区别在于， myql中数据库下的是表，字段和数据的形式存在 mongodb数据库下的是叫集合（和python中的集合不是一个概念），文档，字典的形式存在 而mysql，redis，mongodb，三者的区别： mysql适合长期保存，可存储的数据量大，时间长">
+<meta name="keywords" content="Linux,Mongo,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="上传项目到git">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF&#x2F;index.html">
+<meta property="og:title" content="Linux下的MongoDB">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;Linux%E4%B8%8B%E7%9A%84MongoDB&#x2F;index.html">
 <meta property="og:site_name" content="A little red">
-<meta property="og:description" content="上传项目到git对于git一直理解的不是很到位，每次上传项目都会碰到一些问题，研究了很久，觉得不能每次都无法解决，因此来记录一下完整的上传项目到git的步骤，废话不多说，开始吧！！！ 首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！">
+<meta property="og:description" content="linux下的mongodb数据库原生操作mongodb，是一种结构最像mysql的nosql mysql中的数据库，mongodb中也有，区别在于， myql中数据库下的是表，字段和数据的形式存在 mongodb数据库下的是叫集合（和python中的集合不是一个概念），文档，字典的形式存在 而mysql，redis，mongodb，三者的区别： mysql适合长期保存，可存储的数据量大，时间长">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928194823576.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928195141332.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928195311197.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928195658527.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202113538.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202055400.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928201945559.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202141947.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202211629.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202231157.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202333433.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202346936.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202438869.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202506158.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202546590.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928202602885.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20191008155632557.png">
-<meta property="og:updated_time" content="2019-12-21T01:07:35.662Z">
+<meta property="og:updated_time" content="2019-12-21T06:38:15.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190928194823576.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="A little red" type="application/atom+xml">
   
@@ -196,19 +178,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git上传到仓库及分支" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux下的MongoDB" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      上传项目到git
+      Linux下的MongoDB
     </h1>
   
 
         
-        <a href="/2019/11/25/git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF/" class="archive-article-date">
+        <a href="/2019/11/25/Linux%E4%B8%8B%E7%9A%84MongoDB/" class="archive-article-date">
   	<time datetime="2019-11-25T03:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
 </a>
         
@@ -216,67 +198,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="上传项目到git"><a href="#上传项目到git" class="headerlink" title="上传项目到git"></a>上传项目到git</h2><p>对于git一直理解的不是很到位，每次上传项目都会碰到一些问题，研究了很久，觉得不能每次都无法解决，因此来记录一下完整的上传项目到git的步骤，废话不多说，开始吧！！！</p>
-<h3 id="首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！"><a href="#首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！" class="headerlink" title="首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！"></a>首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！</h3><a id="more"></a>
+        <h1 id="linux下的mongodb数据库原生操作"><a href="#linux下的mongodb数据库原生操作" class="headerlink" title="linux下的mongodb数据库原生操作"></a>linux下的mongodb数据库原生操作</h1><p>mongodb，是一种结构最像mysql的nosql</p>
+<p>mysql中的数据库，mongodb中也有，区别在于，</p>
+<p>myql中数据库下的是表，字段和数据的形式存在</p>
+<p>mongodb数据库下的是叫集合（和python中的集合不是一个概念），文档，字典的形式存在</p>
+<p>而mysql，redis，mongodb，三者的区别：</p>
+<p>mysql适合长期保存，可存储的数据量大，时间长</p>
+<p>redis存储时间短，但调用反应快，时间短，适合一直在不停的变化的数据</p>
+<p>mongodb存在于两者中间，速度一般，保存时间一般，适合一段时间查看一次的数据（个人理解，勿喷）</p>
+<a id="more"></a>
 
-<h4 id="当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下："><a href="#当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下：" class="headerlink" title="当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下："></a>当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下：</h4><p>1、在github首页点击左上角的+号，选择第一个New repository</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928194823576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="点击第一个"></p>
-<p>2、test为创建的仓库名称，点击创建</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928195141332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>3、这样仓库就创建好啦，点击右侧的clone会有一个地址，记住这个地址，后面会频繁的用到哦</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928195311197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>4、接下来就去你本地的项目中吧，在你的安装了git的前提下，在你的项目中点击右键，会有Git Bash Here的选项，点击打开，会弹出下面这个框</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928195658527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="重点来啦"><a href="#重点来啦" class="headerlink" title="重点来啦"></a>重点来啦</h4><p><strong>将项目上传到仓库主分支，也就是master中，步骤入如下：</strong><br>1、<strong>git init 初始化，你的对应文件夹中会有个.git的隐藏文件出现</strong></p>
-<ul>
-<li>（如果之前没有输入过用户名和密码，可能会需要这一步： 1、 <code>git config --global user.email</code><br>“输入你的注册git的邮箱” 2、 <code>git config --global user.name “输入你的git的用户名”</code>）</li>
-</ul>
-<p>2、<strong><code>git add .</code> 上传所有文件（注意：add后面空格一个.）</strong><br>3、<strong><code>git commit -m “对你项目的说明”</code></strong><br>4、<strong><code>git push -u origin master</code> 将项目上传到git中，需要输入你的git用户名和密码</strong></p>
-<h5 id="此上，就结束啦！！！"><a href="#此上，就结束啦！！！" class="headerlink" title="此上，就结束啦！！！"></a>此上，就结束啦！！！</h5><p><strong>将项目传到git的分支上，不是master，是你需要自己创建分支，步骤：</strong><br>1、<code>git init</code> 初始化，出现.git文件夹</p>
-<ol start="2">
-<li><code>git config --global user.email “you@example.com”</code></li>
-<li><code>git config --global user.name “Your Name”</code> （ 这两步同上述步骤，不是必须要写）</li>
-<li><code>git add .</code></li>
-<li><code>git commit -m “说明”</code></li>
-<li><code>git remote add origin git地址</code>（这个地址就是前面复制的地址）</li>
-<li><code>git pull origin master</code></li>
-<li><code>git checkout -b 分支名</code> （你自己创建的分支名）</li>
-<li><code>git push origin 分支名</code></li>
-<li><code>git status</code> 看到本地运行在新分支上</li>
-<li><code>git checkout master</code> 切换到主分支</li>
-<li><code>git merge origin/你的分支名</code></li>
-<li><code>git push</code></li>
-</ol>
-<p><strong>上述步骤是仓库中没有你的分支时的步骤，接下来是你的分支已经存在，现在你又对你的项目做了修改，要再传到分支上，更新你的分支，步骤如下：</strong><br>1.<code>git clone</code> 地址（前面复制的地址）</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202113538.png" alt="在这里插入图片描述"></p>
-<p>2.<code>cd 克隆的文件夹下</code> （上述操作后，你的项目中会出现一个文件夹，是你分支中的项目，用cd切换到这个文件夹下）</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202055400.png" alt="在这里插入图片描述"></p>
-<p>3.将你现在需要上传的项目的文件夹复制，然后粘贴到克隆的这个文件夹下，要替换原来的文件，如下：将选中的文件夹复制到 5flux 中</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928201945559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>4.<code>git branch -a</code> 查看所有分支</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202141947.png" alt="在这里插入图片描述"></p>
-<p>5.<code>git checkout -b 本地分支名 origin/git中的分支名</code><br>若此步骤报错：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202211629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>则执行<br><code>git add .</code><br><code>git commit -m “说明”</code></p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202231157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqOTYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>6.上述两步执行完毕后，再执行5</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202333433.png" alt="在这里插入图片描述"></p>
-<p>7.<code>git pull</code></p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202346936.png" alt="在这里插入图片描述"></p>
-<p>若报错<br><code>Already up-to-date</code><br>则执行</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202438869.png" alt="在这里插入图片描述"></p>
-<p>8.执行<code>git push origin 分支名</code><br>成功则会需要输入用户名和密码</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202506158.png" alt="在这里插入图片描述"></p>
-<p>若报错<code>Already up-to-date</code>，则执行</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202546590.png" alt="在这里插入图片描述"></p>
-<p>9.继续执行8</p>
-<p><img src="https://img-blog.csdnimg.cn/20190928202602885.png" alt="在这里插入图片描述"></p>
-<p>更新分支成功！！！</p>
-<p>如果报错如下，则执行<br><code>git push -u origin 分支名 -f</code></p>
-<p><img src="https://img-blog.csdnimg.cn/20191008155632557.png" alt="在这里插入图片描述"></p>
-<h3 id="更新master的步骤："><a href="#更新master的步骤：" class="headerlink" title="更新master的步骤："></a>更新master的步骤：</h3><p>123步骤如上述更新分支的步骤一致，<br>4、<code>git add .</code><br>5、<code>git commit -m “说明”</code><br>6、<code>git push -u origin master</code> （这一步需要输入用户名和密码）</p>
-<p><strong>这就ok了！！！！</strong></p>
+<p>进入mongodb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br></pre></td></tr></table></figure>
 
+<p>退出mongodb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit()</span><br></pre></td></tr></table></figure>
+
+<p>查看所有的库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure>
+
+<p>进入数据库：mongodb没有创建数据库的操作，只用进入不存在的库，然后创建一个集合，数据库就算建好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 库名</span><br></pre></td></tr></table></figure>
+
+<p>删除数据库：必须在进入到了需要删除的数据库下，在输入下面代码，才能删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+
+<p>进入数据库后，查看数据库下的集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show collections</span><br></pre></td></tr></table></figure>
+
+<p>删除数据库下的某个集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.drop()</span><br></pre></td></tr></table></figure>
+
+<p>插入数据到集合中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.insert(&#123;name:&apos;pywjh&apos;, age:22&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>查看集合内容:集合中的每条数据都会自带一条{“_id” : ObjectId(“5b73e63943494008f8a8111b”}的系统ID，可以自己声明ID，不然会系统自动生成</p>
+<p>　　　　ID是唯一的，不能重复！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find()&#123; &quot;_id&quot; : ObjectId(&quot;5b73e63943494008f8a8111b&quot;), &quot;name&quot; : &quot;pywjh&quot;, &quot;age&quot; : 22 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：查询结果最多显示20条，可以用DBQuery shellBatchSize=30 更改</p>
+<p>查看集合内容:（自带美颜的查询方法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find().pretty()        也叫美观查询</span><br></pre></td></tr></table></figure>
+
+<p>集合中的条件查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find(&#123;name:&apos;pywjh&apos;&#125;)</span><br><span class="line">或者</span><br><span class="line">db.集合名.find(&#123;age:22&#125;)</span><br><span class="line"></span><br><span class="line">都会返回：  &#123; &quot;_id&quot; : ObjectId(&quot;5b73e63943494008f8a8111b&quot;), &quot;name&quot; : &quot;pywjh&quot;, &quot;age&quot; : 22 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果数据较多，只需要查看某些特定的数据内容，可以设置打印内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find(&#123;name:&apos;pywjh&apos;&#125;, &#123;age:1&#125;)    &apos;1&apos;表示布尔值，True    这里是表示搜索name为pywjh的数据，只打印age</span><br><span class="line"></span><br><span class="line">db.集合名.find(&#123;name:&apos;pywjh&apos;&#125;, &#123;age:0&#125;)    &apos;0&apos;表示除了age不打印，其余的都要打印</span><br><span class="line">                                                       [![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);</span><br></pre></td></tr></table></figure>
+
+<p>集合中更新数据</p>
+<p>　　全文档更新：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.update(&#123;name:&apos;pywjh&apos;&#125;,&#123;xxx:&apos;yyy&apos;&#125;)</span><br><span class="line">前一个大括号表示搜索数据位置，后一个大括号表示更新内容，</span><br><span class="line">全文档更新表示将搜索出的数据，直接改变，直接覆盖，慎用</span><br></pre></td></tr></table></figure>
+
+<p>　　指定属性，单条更新：$set</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.update(&#123;name:&apos;pywjh&apos;&#125;,&#123;$set:&#123;name:&apos;xxx&apos;,age:44&#125;&#125;)    如果搜索的条件出现多个结果，此操作只会更改一条数据（从上到下）</span><br></pre></td></tr></table></figure>
+
+<p>　　指定属性，多条更新：{multi:true}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.update(&#123;name:&apos;pywjh&apos;&#125;,&#123;$set&#123;name:&apos;yyy&apos;,age:33&#125;,&#123;multi:true&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>集合中删除数据</p>
+<p>　　多条删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.remove(&#123;name:&apos;xxx&apos;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>　　单条删除：{justOne:true}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.remove(&#123;name:&apos;yyy&apos;&#125;, &#123;justOne:true&#125;)     只会删除一条数据，从上到下</span><br></pre></td></tr></table></figure>
       
 
       
@@ -315,7 +300,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">git,</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Linux,Mongo,</a>
         		</li>
       		
 		</ul>
@@ -382,7 +367,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=	http://yoursite.com/2019/11/25/git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=	http://yoursite.com/2019/11/25/Linux%E4%B8%8B%E7%9A%84MongoDB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -396,18 +381,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/25/postname/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一颗糖的博客
-        
-      </div>
-    </a>
   
-  
-    <a href="/2005/11/25/%7FMongodb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MongoDB基本操作</div>
+    <a href="/2019/11/25/WebSocket%20%E6%98%AF%E4%BB%80%E4%B9%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebSocket 是什么</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -434,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#上传项目到git"><span class="toc-number">1.</span> <span class="toc-text">上传项目到git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！"><span class="toc-number">1.1.</span> <span class="toc-text">首先，你需要有一个git的账号，如果没有，那就去github上注册一个吧！！！</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下："><span class="toc-number">1.1.1.</span> <span class="toc-text">当我们开始写一个项目时，首先要在git中创建一个仓库，步骤如下：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重点来啦"><span class="toc-number">1.1.2.</span> <span class="toc-text">重点来啦</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#此上，就结束啦！！！"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">此上，就结束啦！！！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新master的步骤："><span class="toc-number">1.2.</span> <span class="toc-text">更新master的步骤：</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux下的mongodb数据库原生操作"><span class="toc-number">1.</span> <span class="toc-text">linux下的mongodb数据库原生操作</span></a></li></ol>
                     </div>
                 </span>
             </div>
