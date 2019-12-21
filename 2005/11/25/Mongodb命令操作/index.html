@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/11 | A little red</title>
+  <title>MongoDB基本操作 | A little red</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="A little red">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;11&#x2F;index.html">
+  <meta name="description" content="1.连接mongodb1234mongo 远程主机ip或DNS:MongoDB端口号&#x2F;数据库名 -u user -p passworde.g.: mongo 192.168.1.200:27017&#x2F;test -u user -p password若在安装mongo的服务器上访问本地mongo,可直接执行 mongo  2.shell基本操作命令123456789show dbs:显示数据库列表 s">
+<meta name="keywords" content="MongoDB,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB基本操作">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2005&#x2F;11&#x2F;25&#x2F;%7FMongodb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C&#x2F;index.html">
 <meta property="og:site_name" content="A little red">
+<meta property="og:description" content="1.连接mongodb1234mongo 远程主机ip或DNS:MongoDB端口号&#x2F;数据库名 -u user -p passworde.g.: mongo 192.168.1.200:27017&#x2F;test -u user -p password若在安装mongo的服务器上访问本地mongo,可直接执行 mongo  2.shell基本操作命令123456789show dbs:显示数据库列表 s">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-21T01:29:26.316Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="A little red" type="application/atom+xml">
@@ -174,48 +178,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mongodb命令操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MongoDB基本操作
+    </h1>
+  
+
+        
+        <a href="/2005/11/25/%7FMongodb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+  	<time datetime="2005-11-25T03:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2005-11-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-连接mongodb"><a href="#1-连接mongodb" class="headerlink" title="1.连接mongodb"></a>1.连接mongodb</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mongo 远程主机ip或DNS:MongoDB端口号/数据库名 -u user -p password</span><br><span class="line">e.g.: mongo 192.168.1.200:27017/test -u user -p password</span><br><span class="line"></span><br><span class="line">若在安装mongo的服务器上访问本地mongo,可直接执行 mongo</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-shell基本操作命令"><a href="#2-shell基本操作命令" class="headerlink" title="2.shell基本操作命令"></a>2.shell基本操作命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">show dbs:显示数据库列表 </span><br><span class="line">show collections：显示当前数据库中的集合（类似关系数据库中的表） </span><br><span class="line">show users：显示用户</span><br><span class="line">use &lt;db name&gt;：切换当前数据库，这和MS-SQL里面的意思一样 </span><br><span class="line">db.help()：显示数据库操作命令，里面有很多的命令 </span><br><span class="line">db.foo.help()：显示集合操作命令，同样有很多的命令，foo指的是当前数据库下，一个叫foo的集合(表)，并非真正意义上的命令 </span><br><span class="line">db.foo.find()：对于当前数据库中的foo集合进行数据查找（由于没有条件，会列出所有数据） </span><br><span class="line">db.foo.find( &#123; a : 1 &#125; )：对于当前数据库中的foo集合进行查找，条件是数据中有一个属性叫a，且a的值为1</span><br><span class="line">db.foo.find(&#123;a:1&#125;,&#123;column:0&#125;) :后面的大括号代表返回字段过滤，column为列名，0代表只去掉该字段，1代表只保留该字段</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="3-增"><a href="#3-增" class="headerlink" title="3.增"></a>3.增</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.foo.insert(&#123; &quot;userId&quot; : &quot;testcustomer&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-删"><a href="#4-删" class="headerlink" title="4.删"></a>4.删</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">--删除指定条件的数据</span><br><span class="line">db.foo.remove(&#123;&quot;userId&quot; : &quot;testcustomer&quot;&#125;)</span><br><span class="line">--清空表</span><br><span class="line">db.foo.remove(&#123;&#125;)</span><br><span class="line">--删除表</span><br><span class="line">db.foo.drop()</span><br><span class="line">--删除数据库</span><br><span class="line">db.dropDatabase()</span><br><span class="line">--注意，删除操作是永久性的，不可恢复的，所以删除前应该使用find确认删除数据</span><br><span class="line"></span><br><span class="line">--另，mongodb删除集合后磁盘空间不释放，用db.repairDatabase()去修复才能释放。但是在修复的过程中如果出现了非正常的mongodb的挂掉，再次启动时启动不了的，需要先修复才可以，可以利用./mongod --repair --dbpath=/data/mongo/，如果你是把数据库单独的放在一个文件夹中指定dbpath时就指向要修复的数据库就可以，修复可能要花费很长的时间，在使用db.repairDatabase()去修复时一定要停掉读写，并且mongodb要有备机才可以，不然千万不要随便使用db.repairDatabase()来修复数据库，切记。</span><br><span class="line">回收磁盘空间可以参考：http://blog.csdn.net/mchdba/article/details/8894344</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-改"><a href="#5-改" class="headerlink" title="5.改"></a>5.改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.foo.update(&#123;&quot;userId&quot; : &quot;ordinary&quot;&#125;,&#123;&apos;$set&apos;:&#123;&quot;usermail&quot; : &quot;2012@qq.cn&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-查"><a href="#6-查" class="headerlink" title="6.查"></a>6.查</h2><p>–此处主要记录特殊查询，mongodb语句和mysql sqlserver不同</p>
+<p>大于，小于，大于等于，小于等于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$gt 大于   &gt;</span><br><span class="line">$lt 小于    &lt;</span><br><span class="line">$gte  大于等于  &gt;=</span><br><span class="line">$lte  小于等于  &lt;=</span><br><span class="line"></span><br><span class="line">e.g. </span><br><span class="line">db.collection.find(&#123;age:&#123;$gt:18&#125;&#125;);  //年龄大于不包含18岁</span><br><span class="line">SQL:SELECT * FROM Collection WHERE age&gt;18</span><br></pre></td></tr></table></figure>
+
+<p>不等于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ne 不等于 noe equals</span><br><span class="line"></span><br><span class="line">e.g. </span><br><span class="line">db.collection.find(&#123;age:&#123;$ne:18&#125;&#125;)  ;//年龄不等于18</span><br></pre></td></tr></table></figure>
+
+<p>in, not in</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--in,not in</span><br><span class="line">$in,$nin</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line">db.collection.find(&#123;field:&#123;$in:array&#125;&#125;);</span><br><span class="line">db.collection.find(&#123;field:&#123;$nin:array&#125;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>是否存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$exists</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line">db.collection.find(&#123;title:&#123;$exists:true&#125;&#125;);  //如果记录中有包含title属性的全部返回</span><br><span class="line">db.collection.find(&#123;title:&#123;$exists:false&#125;&#125;); //如果记录中有包含title属性的全部不返回，不包含title属性的全部返回</span><br></pre></td></tr></table></figure>
+
+<p>正则表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find( &#123; name : /acme.*corp/i &#125; ); // 后面的i的意思是区分大小写</span><br></pre></td></tr></table></figure>
+
+<p>非查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$not</span><br><span class="line"></span><br><span class="line">e.g. </span><br><span class="line">db.collection.find( &#123; name : &#123; $not : /acme.*corp/i &#125; &#125; );</span><br></pre></td></tr></table></figure>
+
+<p>匹配内数组内的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$elemMatch</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line">如果对象有一个元素是数组，那么$elemMatch可以匹配内数组内的元素</span><br><span class="line">&gt; t.find( &#123; x : &#123; $elemMatch : &#123; a : 1, b : &#123; $gt : 1 &#125; &#125; &#125; &#125; ) </span><br><span class="line"></span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;4b57833003340000999&quot;),&quot;x&quot;:[&#123;&quot;a&quot;:1,&quot;b&quot;:3&#125;,7,&#123;&quot;b&quot;:99&#125;, &#123;&quot;a&quot;:11&#125;]&#125;</span><br><span class="line">$elemMatch : &#123; a : 1, b : &#123; $gt : 1 &#125; &#125; 所有的条件都要匹配上才行。</span><br><span class="line"></span><br><span class="line">区别于</span><br><span class="line">t.find( &#123; &quot;x.a&quot; : 1, &quot;x.b&quot; : &#123; $gt : 1 &#125; &#125; )</span><br><span class="line"></span><br><span class="line">$elemMatch是匹配&#123; &quot;a&quot; : 1, &quot;b&quot; : 3 &#125;，而后面一句是匹配&#123; &quot;b&quot; : 99 &#125;, &#123; &quot;a&quot; : 11 &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WeChat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/25/WebSocket%20%E6%98%AF%E4%BB%80%E4%B9%88/" class="archive-article-date">
-  	<time datetime="2019-11-25T03:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/25/WebSocket%20%E6%98%AF%E4%BB%80%E4%B9%88/">WebSocket 是什么</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">Web,</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">MongoDB,</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -228,115 +290,121 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=	http://yoursite.com/2005/11/25/%7FMongodb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/25/postname/" class="archive-article-date">
-  	<time datetime="2019-11-25T03:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/11/25/git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          上传项目到git
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/25/postname/">一颗糖的博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">a,</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/a//" class="article-tag-list-link color2">a</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-连接mongodb"><span class="toc-number">1.</span> <span class="toc-text">1.连接mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-shell基本操作命令"><span class="toc-number">2.</span> <span class="toc-text">2.shell基本操作命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-增"><span class="toc-number">3.</span> <span class="toc-text">3.增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-删"><span class="toc-number">4.</span> <span class="toc-text">4.删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-改"><span class="toc-number">5.</span> <span class="toc-text">5.改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-查"><span class="toc-number">6.</span> <span class="toc-text">6.查</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/25/git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF/" class="archive-article-date">
-  	<time datetime="2019-11-25T03:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/25/git%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E5%88%86%E6%94%AF/">上传项目到git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">git,</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/a//" class="article-tag-list-link color2">a</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -370,8 +438,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
